@@ -1,3 +1,4 @@
+import { SignupComponent } from './../components/signup/signup.component';
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -9,6 +10,7 @@ const appRoutes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
       { path: 'home', component: HomeComponent },
+      { path: 'signup', component: SignupComponent },
       { path: '', pathMatch: 'full', redirectTo: '/home' }
     ]
   }

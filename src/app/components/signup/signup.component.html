@@ -1,0 +1,50 @@
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <app-error-panel></app-error-panel>
+
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-lg-12">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Cadastro</h1>
+        <div class="separator-2"></div>
+        <!-- page-title end -->
+
+        <!-- Forms -->
+        <!-- ============================================================================== -->
+        <br>
+
+        <form>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Nome">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" class="form-control is-invalid" id="password" placeholder="Senha">
+            <!-- <div class="invalid-feedback">Sorry, that username's taken. Try another?</div> -->
+
+            <app-error-message [propertyName]="'Email'"></app-error-message>
+          </div>
+
+          <button type="submit" class="btn btn-default">Cadastrar</button>
+          <button type="button" (click)="addError()" class="btn btn-default">Add erro</button>
+        </form>
+      </div>
+      <!-- main end -->
+
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
