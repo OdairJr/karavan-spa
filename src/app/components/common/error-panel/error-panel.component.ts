@@ -17,12 +17,11 @@ export class ErrorPanelComponent implements OnInit {
 
   ngOnInit() {
     this.baseService.listErrors.subscribe(errorModel => {
+      debugger;
       this.messages = [];
       if (!isNullOrUndefined(errorModel) && errorModel.errors.length > 0) {
         errorModel.errors.forEach(error => {
-          if (isNullOrUndefined(error.propertyName) || error.propertyName === '') {
-            this.messages.push(error.errorMessage);
-          }
+          this.messages.push(error.errorMessage);
         });
       }
     });

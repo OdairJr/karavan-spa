@@ -1,6 +1,7 @@
-import { BaseService } from './../../services/base/base.service';
 import { AccountService } from './../../services/account/account.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,18 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+  public user: User = new User();
+  public confirmPassword: string;
+  public isCreated = false;
+
   constructor(
-    private accountService: AccountService,
-    private baseService: BaseService
+    private router: Router,
+    private accountService: AccountService
   ) { }
 
   ngOnInit() {
-    this.accountService.signup();
   }
 
-  addError() {
-    debugger;
-    this.baseService.addError();
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 
+  onSubmit() {
+    this.accountService.signUp(this.user).subscribe(response => {
+      this.isCreated = true;
+    });
+  }
 }

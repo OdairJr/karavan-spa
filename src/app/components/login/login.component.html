@@ -1,0 +1,50 @@
+<!-- main-container start -->
+<!-- ================ -->
+<div class="main-container dark-translucent-bg" style="background-image:url('assets/images/background-img-6.jpg');">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <!-- main start -->
+        <!-- ================ -->
+        <div class="main">
+          <div class="form-block p-30 light-gray-bg border-clear">
+            <h2 class="title">Login</h2>
+            <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()" class="form-horizontal">
+              <div class="form-group has-feedback row">
+                <label for="email" class="col-md-3 control-label text-md-right col-form-label">Email<span
+                    class="text-danger small">*</span></label>
+                <div class="col-md-8">
+                  <input [(ngModel)]="loginModel.email" name="email" type="email" class="form-control" id="email"
+                    placeholder="Email" required #email="ngModel"
+                    [ngClass]="{'is-invalid': email.invalid && form.submitted}">
+                  <div *ngIf="email.invalid && form.submitted" class="invalid-feedback">O email é um campo obrigatório.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group has-feedback row">
+                <label for="password" class="col-md-3 control-label text-md-right col-form-label">Senha<span
+                    class="text-danger small">*</span></label>
+                <div class="col-md-8">
+                  <input [(ngModel)]="loginModel.password" name="password" type="password" class="form-control" id="password"
+                    placeholder="Senha" required #password="ngModel"
+                    [ngClass]="{'is-invalid': password.invalid && form.submitted}">
+                  <div *ngIf="password.invalid && form.submitted" class="invalid-feedback">A senha é um campo
+                    obrigatório.</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="ml-md-auto col-md-9">
+                  <button type="submit" class="btn btn-group btn-default btn-animated">Login<i
+                      class="fa fa-check"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <p class="text-center space-top">Ainda não tem uma conta? <a (click)="goToSignUp()">Cadastre-se</a> agora.</p>
+        </div>
+        <!-- main end -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-container end -->

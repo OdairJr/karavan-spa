@@ -1,50 +1,78 @@
 <!-- main-container start -->
 <!-- ================ -->
-<section class="main-container">
-
+<div class="main-container dark-translucent-bg" style="background-image:url('assets/images/background-img-6.jpg');">
   <div class="container">
-    <app-error-panel></app-error-panel>
-
-    <div class="row">
-
-      <!-- main start -->
-      <!-- ================ -->
-      <div class="main col-lg-12">
-
-        <!-- page-title start -->
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <!-- main start -->
         <!-- ================ -->
-        <h1 class="page-title">Cadastro</h1>
-        <div class="separator-2"></div>
-        <!-- page-title end -->
+        <div class="main">
+          <div class="form-block p-30 light-gray-bg border-clear">
+            <h2 class="title">Criar Conta</h2>
+            <app-error-panel></app-error-panel>
+            <div *ngIf="isCreated"  class="alert alert-icon alert-success" role="alert">
+              <i class="fa fa-check"></i>
+              Conta criada com sucesso! Você já pode efetuar login.
+            </div>
 
-        <!-- Forms -->
-        <!-- ============================================================================== -->
-        <br>
-
-        <form>
-          <div class="form-group">
-            <label for="name">Nome</label>
-            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Nome">
+            <form *ngIf="!isCreated" #form="ngForm" (ngSubmit)="form.valid && onSubmit()" class="form-horizontal">
+              <div class="form-group has-feedback row">
+                <label for="name" class="col-md-3 control-label text-md-right col-form-label">Nome<span
+                    class="text-danger small">*</span></label>
+                <div class="col-md-8">
+                  <input [(ngModel)]="user.name" name="name" type="text" class="form-control"
+                    [ngClass]="{'is-invalid': name.invalid && form.submitted}" id="name" placeholder="Nome" required
+                    #name="ngModel">
+                  <div *ngIf="name.invalid && form.submitted" class="invalid-feedback">O nome é um campo obrigatório.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group has-feedback row">
+                <label for="email" class="col-md-3 control-label text-md-right col-form-label">Email<span
+                    class="text-danger small">*</span></label>
+                <div class="col-md-8">
+                  <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="email"
+                    placeholder="Email" required #email="ngModel"
+                    [ngClass]="{'is-invalid': email.invalid && form.submitted}">
+                  <div *ngIf="email.invalid && form.submitted" class="invalid-feedback">O email é um campo obrigatório.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group has-feedback row">
+                <label for="password" class="col-md-3 control-label text-md-right col-form-label">Senha<span
+                    class="text-danger small">*</span></label>
+                <div class="col-md-8">
+                  <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="password"
+                    placeholder="Senha" required #password="ngModel"
+                    [ngClass]="{'is-invalid': password.invalid && form.submitted}">
+                  <div *ngIf="password.invalid && form.submitted" class="invalid-feedback">A senha é um campo
+                    obrigatório.</div>
+                </div>
+              </div>
+              <div class="form-group has-feedback row">
+                <label for="confirmPassword" class="col-md-3 control-label text-md-right col-form-label">Confirmação de
+                  Senha<span class="text-danger small">*</span></label>
+                <div class="col-md-8">
+                  <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control"
+                    id="confirmPassword" placeholder="Confirmação de Senha" required #confirmPass="ngModel"
+                    [ngClass]="{'is-invalid': confirmPass.invalid && form.submitted}">
+                  <div *ngIf="confirmPass.invalid && form.submitted" class="invalid-feedback">A confirmação de senha é
+                    um campo obrigatório.</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="ml-md-auto col-md-9">
+                  <button type="submit" class="btn btn-group btn-default btn-animated">Cadastrar<i
+                      class="fa fa-check"></i></button>
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="password">Senha</label>
-            <input type="password" class="form-control is-invalid" id="password" placeholder="Senha">
-            <!-- <div class="invalid-feedback">Sorry, that username's taken. Try another?</div> -->
-
-            <app-error-message [propertyName]="'Email'"></app-error-message>
-          </div>
-
-          <button type="submit" class="btn btn-default">Cadastrar</button>
-          <button type="button" (click)="addError()" class="btn btn-default">Add erro</button>
-        </form>
+          <p class="text-center space-top">Já tem uma conta? <a (click)="goToLogin()">Faça login</a> agora.</p>
+        </div>
+        <!-- main end -->
       </div>
-      <!-- main end -->
-
     </div>
   </div>
-</section>
+</div>
 <!-- main-container end -->

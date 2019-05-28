@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './routes/app.routing';
 
@@ -12,8 +13,8 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { HeaderComponent } from './components/common/header/header.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { BreadcrumbComponent } from './components/common/breadcrumb/breadcrumb.component';
-import { ErrorMessageComponent } from './components/common/error-message/error-message.component';
 import { ErrorPanelComponent } from './components/common/error-panel/error-panel.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { ErrorPanelComponent } from './components/common/error-panel/error-panel
     HeaderComponent,
     SignupComponent,
     BreadcrumbComponent,
-    ErrorMessageComponent,
-    ErrorPanelComponent
+    ErrorPanelComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     SERVICES
