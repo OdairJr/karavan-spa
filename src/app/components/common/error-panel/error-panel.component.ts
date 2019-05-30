@@ -1,4 +1,4 @@
-import { BaseService } from './../../../services/base/base.service';
+// import { BaseService } from './../../../services/base/base.service';
 import { Component, OnInit } from '@angular/core';
 import { isNullOrUndefined } from 'util';
 
@@ -12,18 +12,18 @@ export class ErrorPanelComponent implements OnInit {
   private messages: Array<string> = new Array<string>();
 
   constructor(
-    public baseService: BaseService
+    // public baseService: BaseService
   ) { }
 
   ngOnInit() {
-    this.baseService.listErrors.subscribe(errorModel => {
-      debugger;
-      this.messages = [];
-      if (!isNullOrUndefined(errorModel) && errorModel.errors.length > 0) {
-        errorModel.errors.forEach(error => {
-          this.messages.push(error.errorMessage);
-        });
-      }
-    });
+    // this.baseService.listErrors.subscribe(errorModel => {
+    //   debugger;
+    //   this.messages = [];
+    //   if (!isNullOrUndefined(errorModel) && errorModel.errors.length > 0) {
+    //     errorModel.errors.forEach(error => {
+    //       this.messages.push(error.errorMessage);
+    //     });
+    //   }
+    // });
   }
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './routes/app.routing';
@@ -15,6 +15,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { BreadcrumbComponent } from './components/common/breadcrumb/breadcrumb.component';
 import { ErrorPanelComponent } from './components/common/error-panel/error-panel.component';
 import { LoginComponent } from './components/login/login.component';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule
   ],
   providers: [
-    SERVICES
+    SERVICES,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
