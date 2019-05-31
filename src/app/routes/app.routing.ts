@@ -1,3 +1,4 @@
+import { ListTeamComponent } from './../components/team/list-team/list-team.component';
 import { SignupComponent } from './../components/signup/signup.component';
 import { NgModule } from '@angular/core';
 
@@ -7,11 +8,18 @@ import { LayoutComponent } from '../components/common/layout/layout.component';
 import { HomeComponent } from '../components/home/home.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { CreateTeamComponent } from '../components/team/create-team/create-team.component';
 
 const appRoutes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
       { path: 'home', component: HomeComponent },
+      {
+        path: 'teams', children: [
+          { path: 'list', component: ListTeamComponent },
+          { path: 'create', component: CreateTeamComponent },
+        ]
+      },
       { path: '', pathMatch: 'full', redirectTo: '/home' }
     ],
     canActivate: [AuthGuard]

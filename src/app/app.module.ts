@@ -17,6 +17,8 @@ import { ErrorPanelComponent } from './components/common/error-panel/error-panel
 import { LoginComponent } from './components/login/login.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { ListTeamComponent } from './components/team/list-team/list-team.component';
+import { CreateTeamComponent } from './components/team/create-team/create-team.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     SignupComponent,
     BreadcrumbComponent,
     ErrorPanelComponent,
-    LoginComponent
+    LoginComponent,
+    ListTeamComponent,
+    CreateTeamComponent
   ],
   imports: [
     AppRoutingModule,

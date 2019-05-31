@@ -1,0 +1,43 @@
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-lg-8">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Criar Time</h1>
+        <div class="separator-2"></div>
+        <!-- page-title end -->
+
+        <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" placeholder="Nome" name="name" required
+              [(ngModel)]="teamModel.name" [ngClass]="{'is-invalid': name.invalid && form.submitted}" #name="ngModel">
+            <div *ngIf="name.invalid && form.submitted" class="invalid-feedback">O nome é um campo
+              obrigatório.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description">Descrição</label>
+            <textarea class="form-control" id="description" rows="3" name="description" required
+              [(ngModel)]="teamModel.description" [ngClass]="{'is-invalid': description.invalid && form.submitted}"
+              #description="ngModel"></textarea>
+            <div *ngIf="name.invalid && form.submitted" class="invalid-feedback">A descrição é um campo
+              obrigatório.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default">Criar</button>
+        </form>
+      </div>
+      <!-- main end -->
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
