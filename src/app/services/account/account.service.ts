@@ -23,12 +23,12 @@ export class AccountService {
   }
 
   signUp(user: User): Observable<User> {
-    return this.http.post('https://localhost:44368/api/account/register', user)
+    return this.http.post('https://localhost:5001/api/account/register', user)
       .pipe(map((res: User) => res));
   }
 
   login(loginModel: Login) {
-    return this.http.post('https://localhost:44368/api/account/login', loginModel)
+    return this.http.post('https://localhost:5001/api/account/login', loginModel)
       .pipe(map((user: User) => {
         // login successful if there's a jwt token in the response
         if (user && user.accessToken) {
