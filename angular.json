@@ -23,10 +23,34 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/bootstrap/css/bootstrap.css",
+              "src/assets/fonts/font-awesome/css/font-awesome.css",
+              "src/assets/plugins/magnific-popup/magnific-popup.css",
+              "src/assets/plugins/rs-plugin-5/css/settings.css",
+              "src/assets/plugins/rs-plugin-5/css/layers.css",
+              "src/assets/plugins/rs-plugin-5/css/navigation.css",
+              "src/assets/css/animations.css",
+              "src/assets/plugins/slick/slick.css",
+              "src/assets/css/style.css",
+              "src/assets/css/typography-default.css",
+              "src/assets/css/skins/gray.css",
+              "src/assets/css/custom.css",
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/js/template.js"
+              "src/assets/plugins/jquery.min.js",
+              "src/assets/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js",
+              "src/assets/plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js",
+              "src/assets/plugins/isotope/imagesloaded.pkgd.min.js",
+              "src/assets/plugins/isotope/isotope.pkgd.min.js",
+              "src/assets/plugins/magnific-popup/jquery.magnific-popup.min.js",
+              "src/assets/plugins/waypoints/jquery.waypoints.min.js",
+              "src/assets/plugins/waypoints/sticky.min.js",
+              "src/assets/plugins/countTo/jquery.countTo.js",
+              "src/assets/plugins/slick/slick.min.js",
+              "src/assets/js/template.js",
+              "src/assets/js/custom.js"
             ],
             "es5BrowserSupport": true
           },
